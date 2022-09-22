@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsplash</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    .zz{
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .im1,.im2,.im3,.im4,.im5,.im6,.im7,.im8,.im9,.im10{
+        margin: 0.7vh;
+        width: auto;
+        transition-property: height;
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        height: 250px;
+        
+    }
+    body{
+        background-color: #001;
+    }
+    header{
+        text-align: center;
+    }
+    #srch,button{
+        margin-right: 20px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid lightseagreen;
+    }
+    #srch{
+        width: 250px;
+        text-align: center;
+        font-size: xx-large;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+        color: red;
+    }
+    button{
+        width: 80px;
+        background-color: yellow;
+    }
+    h1{
+        color: white;
+    }
+    header{
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+    }
+    header h1{
+        margin-bottom: 2vh;
+        
+    } 
+    .zz img:hover{
+        box-shadow: 0px 8px 16px 0px rgba(150,150,255,0.2);
+        /* box-shadow: 2px 2px 10px #335; */
+        height: 260px;
+    }
+    /* .zz{
+        max-height: 500px;
+        overflow: auto;
+    } */
+</style>
+<script>
+    function searchFun(){
+        let search=document.getElementById("srch").value;
+        let clientID="UmwhuIg0sTyPEtEJHjroqwPJj0ShKN41W8IjE6oKeKU";
+        let endpoint=`https://api.unsplash.com/photos/random/?client_id=${clientID}&query=${search}`;
+        let cnt=document.getElementById("container");
+        let imageEl1=document.querySelector(".im1");
+        let imageEl2=document.querySelector(".im2");
+        let imageEl3=document.querySelector(".im3");
+        let imageEl4=document.querySelector(".im4");
+        let imageEl5=document.querySelector(".im5");
+        let imageEl6=document.querySelector(".im6");
+        let imageEl7=document.querySelector(".im7");
+        let imageEl8=document.querySelector(".im8");
+        let imageEl9=document.querySelector(".im9");
+        let imageEl10=document.querySelector(".im10");
+        fetch(endpoint)
+            .then(function(data){
+                console.log(data);
+                return data.json();
+            })
+            .then(function(data){
+                imageEl1.src=data.urls.regular;
+                imageEl2.src=data.urls.regular;
+                imageEl3.src=data.urls.regular;
+                imageEl4.src=data.urls.regular;
+                imageEl5.src=data.urls.regular;
+                imageEl6.src=data.urls.regular;
+                imageEl7.src=data.urls.regular;
+                imageEl8.src=data.urls.regular;
+                imageEl9.src=data.urls.regular;
+                imageEl10.src=data.urls.regular;  
+            })
+    }
+</script>
+<body>
+    <header>
+        <h1> Un-Splash Photo viewing</h1>
+        <input type="text"id="srch">
+        <button onclick="searchFun()">Search</button>  
+    </header>
+    <div class="zz">
+        <img src="/vs/images/i1.avif" alt="" class="im1">
+        <img src="/vs/images/i2.avif" alt="" class="im2">
+        <img src="/vs/images/i3.avif" alt="" class="im3">
+        <img src="/vs/images/i4.avif" alt="" class="im4">
+        <img src="/vs/images/i5.avif" alt="" class="im5">
+        <img src="/vs/images/i6.avif" alt="" class="im6">
+        <img src="/vs/images/i7.avif" alt="" class="im7">
+        <img src="/vs/images/i8.avif" alt="" class="im8">
+        <img src="/vs/images/i1.avif" alt="" class="im9">
+        <img src="" alt="" class="im10">
+        
+    </div>
+</body>
+</html>
